@@ -1,7 +1,6 @@
 import React from "react";
 
-import { DataTable } from "./DataTable";
-import { ColumnsType } from "antd/es/table";
+import Table, { ColumnsType } from "antd/es/table";
   
 interface Order {
   id: number;
@@ -129,8 +128,7 @@ export default function BasicTableOne() {
     // <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
         <div className="min-w-[1102px]">
-          <DataTable columns={columns} data={tableData} />
-         
+          <Table columns={columns} dataSource={tableData} />
         </div>
       </div>
     // </div>

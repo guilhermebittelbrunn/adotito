@@ -36,13 +36,13 @@ export default function SignUpForm() {
                   {/* <!-- First Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
-                      Nome<span className="text-error-500">*</span>
+                      Nome da instituição<span className="text-error-500">*</span>
                     </Label>
                     <Input
                       type="text"
                       id="name"
                       name="name"
-                      placeholder="Insira seu nome"
+                      placeholder="Insira o nome da instituição"
                     />
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function SignUpForm() {
               <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
                 Já tem uma conta?
                 <Link
-                  href="/signin"
+                  href="./entrar"
                   className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
                 >
                   {' '}Entrar
