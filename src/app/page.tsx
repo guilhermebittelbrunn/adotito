@@ -30,23 +30,23 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative bg-brand-950 text-white/90 flex flex-col items-center justify-center px-6 py-32 text-center">
-        <h1 className="mb-6 text-4xl font-bold text-white/90 dark:text-gray-800 sm:text-5xl xl:text-6xl">
+        <h1 className="mb-6 text-4xl font-bold text-white/90 sm:text-5xl xl:text-6xl">
           Bem-vindo ao Adotito
         </h1>
-        <p className="mb-8 max-w-2xl text-lg text-gray-400 dark:text-gray-700">
+        <p className="mb-8 max-w-2xl text-lg text-gray-400 dark:text-gray-400">
           Conectando animais que precisam de um lar com pessoas que têm muito amor para dar.
           Faça parte dessa história de amor e transformação.  
         </p>
         <div className="flex flex-col gap-4 sm:flex-row max-sm:w-full max-sm:px-12">
           <Link
             href="./entrar"
-            className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-10 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 "
+            className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-10 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 "
           >
             Entrar
           </Link>
           <Link
             href="./cadastro"
-            className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
+            className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
           >
             Cadastre-se
           </Link>

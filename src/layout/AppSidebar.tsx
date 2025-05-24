@@ -5,17 +5,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
+  AnimalIcon,
   BoxCubeIcon,
-  CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
-  ListIcon,
-  PageIcon,
+  PencilIcon,
   PieChartIcon,
   PlugInIcon,
-  TableIcon,
-  UserCircleIcon,
+  RequestIcon,
+  HomeIcon
 } from "../icons/index";
 
 type NavItem = {
@@ -27,42 +26,59 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <GridIcon />,
-    name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    icon: <HomeIcon />,
+    name: "Início",
+    path: "./associacao",
   },
   {
-    icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "./calendar",
+    icon: <AnimalIcon />,
+    name: "Animais",
+    path: "./animais",
   },
   {
-    icon: <UserCircleIcon />,
-    name: "User Profile",
-    path: "./profile",
-  },
-
-  {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "./form-elements", pro: false }],
+    icon: <RequestIcon />,
+    name: "Requisições",
+    path: "./requisicoes",
   },
   {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "./basic-tables", pro: false }],
-  },
-  {
-    name: "Pages",
-    icon: <PageIcon />,
+    icon: <PencilIcon />,
+    name: "Cadastros",
     subItems: [
-      { name: "Blank Page", path: "./blank", pro: false },
-      { name: "404 Error", path: "./error-404", pro: false },
+      {
+        name: "Espécies",
+        path: "./especies",
+      },
+      {
+        name: "Etiquetas",
+        path: "./etiquetas",
+      },
+      {
+        name: "Publicações",
+        path: "./publicacoes",
+      },
+      {
+        name: "Usuários",
+        path: "./usuarios",
+      },
+      
+      
     ],
   },
 ];
 
 const othersItems: NavItem[] = [
+  {
+    icon: <GridIcon/>,
+    name: "Mocks",
+    subItems: [
+      { name: "Calendar",path: "./calendar",},
+      { name: "User Profile",path: "./profile",},
+      { name: "Form Elements", path: "./form-elements", pro: false },
+      { name: "Basic Tables", path: "./basic-tables", pro: false },
+      { name: "Blank Page", path: "./blank", pro: false },
+      { name: "404 Error", path: "./error-404", pro: false },
+    ],
+  },
   {
     icon: <PieChartIcon />,
     name: "Charts",
@@ -232,7 +248,7 @@ const AppSidebar: React.FC = () => {
   );
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  // const isActive = (path: string) => path === pathname;
+  // / const isActive = (path: string) => path === pathname;
    const isActive = useCallback((path: string) => path === pathname, [pathname]);
 
   useEffect(() => {
