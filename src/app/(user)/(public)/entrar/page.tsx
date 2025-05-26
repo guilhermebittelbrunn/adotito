@@ -1,7 +1,7 @@
 'use client';
 import Input from '@/components/form/input/InputField';
 import Label from '@/components/form/Label';
-import Button from '@/components/ui/button';
+import Button from '@/components/ui/button/Button';
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from '@/icons';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -61,9 +61,7 @@ export default function SignInForm() {
                                     </div>
                                 </div>
                                 <div>
-                                    <Button className="w-full" size="sm">
-                                        Entrar
-                                    </Button>
+                                    <Button className="w-full">Entrar</Button>
                                 </div>
                             </div>
                         </form>

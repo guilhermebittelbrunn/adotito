@@ -3,8 +3,8 @@ import React from 'react';
 import ComponentCard from '../../common/ComponentCard';
 
 import { Modal } from '../../ui/modal';
-import Button from '../../ui/button';
 import { useModal } from '@/hooks/useModal';
+import Button from '@/components/ui/button/Button';
 
 export default function DefaultModal() {
     const { isOpen, openModal, closeModal } = useModal();

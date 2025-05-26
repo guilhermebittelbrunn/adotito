@@ -2,8 +2,8 @@
 import { useModal } from '@/hooks/useModal';
 import ComponentCard from '../../common/ComponentCard';
 
-import Button from '../../ui/button';
 import { Modal } from '../../ui/modal';
+import Button from '@/components/ui/button/Button';
 
 export default function FullScreenModal() {
     const {

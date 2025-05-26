@@ -1,9 +1,9 @@
 'use client';
 
-import { Card, Dropdown, Table } from 'antd';
+import { Button, Card, Dropdown, Table } from 'antd';
 import { DeleteOutlined, EditOutlined, MoreOutlined, PlusOutlined } from '@ant-design/icons';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 import { AnimalGenderEnum, AnimalSizeEnum, AnimalStatusEnum, IAnimal } from '@/types/animal';
 import Badge from '@/components/ui/badge/Badge';
@@ -16,7 +16,6 @@ import {
 import PageBreadcrumb from '@/components/common/PageBreadCrumb';
 import { SearchInput } from '@/components/inputs/input';
 import { Select } from '@/components/inputs';
-import Button from '@/components/ui/button';
 
 const mockData: AnimalsResponse = {
     data: [
@@ -249,6 +248,14 @@ const columns: ColumnsType<IAnimal> = [
 ];
 
 export default function AnimalsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <AnimalsPageContent />
+        </Suspense>
+    );
+}
+
+function AnimalsPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [animals, setAnimals] = useState<AnimalsResponse | null>(null);
