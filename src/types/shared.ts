@@ -13,3 +13,15 @@ export interface INotification {
   type: NotificationTypeEnum;
   createdAt: Date;
 }
+export interface IPicture {
+  id: string;
+  entityId: string;
+  url: string;
+  originalName: string;
+  path: string;
+  sequence: null;
+  enabled: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+

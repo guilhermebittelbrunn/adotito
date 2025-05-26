@@ -134,7 +134,7 @@ const mockData: AnimalsResponse = {
     },
 };
 interface AnimalsResponse {
-    data: IAnimal[];
+    data: Partial<IAnimal>[];
     meta: {
         total: number;
         page: number;
@@ -144,7 +144,29 @@ interface AnimalsResponse {
     };
 }
 
-const columns: ColumnsType<IAnimal> = [
+
+
+export default function AnimalsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <AnimalsPageContent />
+        </Suspense>
+    );
+}
+
+function AnimalsPageContent() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const [animals, setAnimals] = useState<AnimalsResponse | null>(null);
+
+    const currentPage = Number(searchParams.get('page')) || 1;
+    const currentStatus = searchParams.get('status') || undefined;
+    const currentGender = searchParams.get('gender') || undefined;
+    const currentSize = searchParams.get('size') || undefined;
+    const currentSearch = searchParams.get('search') || undefined;
+
+
+    const columns: ColumnsType<Partial<IAnimal>>  = [
     {
         title: 'Foto',
         dataIndex: 'mainPicture',
@@ -213,7 +235,7 @@ const columns: ColumnsType<IAnimal> = [
         key: 'actions',
         width: 100,
         align: 'center',
-        render: (_: unknown, record: IAnimal) => (
+        render: (_: unknown, record: Partial<IAnimal>) => (
             <Dropdown
                 trigger={['click']}
                 placement="bottomRight"
@@ -224,8 +246,8 @@ const columns: ColumnsType<IAnimal> = [
                             key: 'edit',
                             label: 'Editar',
                             onClick: () => {
-                                // TODO: Implement edit action
                                 console.log('Edit', record);
+                                router.push(`/associacao/animais/${record.id}`);
                             },
                         },
                         {
@@ -246,26 +268,6 @@ const columns: ColumnsType<IAnimal> = [
         ),
     },
 ];
-
-export default function AnimalsPage() {
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <AnimalsPageContent />
-        </Suspense>
-    );
-}
-
-function AnimalsPageContent() {
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const [animals, setAnimals] = useState<AnimalsResponse | null>(null);
-
-    const currentPage = Number(searchParams.get('page')) || 1;
-    const currentStatus = searchParams.get('status') || undefined;
-    const currentGender = searchParams.get('gender') || undefined;
-    const currentSize = searchParams.get('size') || undefined;
-    const currentSearch = searchParams.get('search') || undefined;
-
     const handleTableChange = (pagination: TablePaginationConfig) => {
         const params = new URLSearchParams(searchParams.toString());
         params.set('page', pagination.current?.toString() || '1');
@@ -288,8 +290,7 @@ function AnimalsPageContent() {
                             type="primary"
                             icon={<PlusOutlined />}
                             onClick={() => {
-                                // TODO: Implement create action
-                                console.log('Create new animal');
+                                router.push('/associacao/animais/cadastrar');
                             }}
                         >
                             Novo Animal

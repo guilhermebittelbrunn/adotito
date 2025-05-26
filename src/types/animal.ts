@@ -1,9 +1,14 @@
+import { IPicture } from './shared';
 import { ISpecie } from './specie';
 
 export interface IAnimal {
     id: string;
     name: string;
+    associationId: string;
+    description: string | null;
     breed: string;
+    specieId: string;
+    isFavorite: boolean;
     age: number;
     weight: number;
     status: AnimalStatusEnum;
@@ -13,7 +18,19 @@ export interface IAnimal {
     mainPicture?: {
         url: string;
     };
+    createdAt: string;
+    updatedAt: string;
+    tags: ITag[];
+    pictures: IPicture[];
 }
+
+export interface ITag {
+  id: string;
+  associationId: string;
+  name: string;
+  enabled: boolean;
+}
+
 
 export enum AnimalStatusEnum {
     AVAILABLE = 'available',
