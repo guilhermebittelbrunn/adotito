@@ -1,14 +1,22 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-    return config;
-  },
+    /* config options here */
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        });
+        return config;
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'acapra.s3.us-east-1.amazonaws.com',
+            },
+        ],
+    },
 };
 
 export default nextConfig;
